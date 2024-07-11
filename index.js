@@ -8,6 +8,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.use('/', (req,res)=>{
+    res.json({message:"hello from express app"})
+});
+
+
 mongoose.connect(db).then(() => {
     console.log("connection successfull")
 }).catch((err) => console.log("no connection"))
@@ -43,4 +48,5 @@ app.post('/add', (req, res) => {
 app.listen(3001, () => {
     console.log("server is running")
 })
+module.exports = app;
 
