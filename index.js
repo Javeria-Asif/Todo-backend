@@ -9,14 +9,18 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use('/', (req,res)=>{
-    res.json({message:"hello from express app"})
-});
+// app.use('/', (req,res)=>{
+    // res.json({message:"hello from express app"})
+// });
 
 
 mongoose.connect(db).then(() => {
     console.log("connection successfull")
 }).catch((err) => console.log("no connection"))
+
+app.get('/get', (req, res) => {
+    res.json(todos);
+  });
 
 app.get('/get', (req, res) => {
     todomodel.find()
