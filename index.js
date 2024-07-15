@@ -6,6 +6,7 @@ const todomodel = require('./models/todo')
 
 const app = express()
 app.use(cors())
+
 app.use(express.json())
 
 app.use('/', (req,res)=>{
@@ -46,7 +47,7 @@ app.post('/add', (req, res) => {
 })
 
 app.listen(3001, () => {
-    console.log("server is running")
+    console.log(`server is running on port`)
 })
 module.exports = app;
 
